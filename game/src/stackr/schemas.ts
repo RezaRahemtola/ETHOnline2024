@@ -1,5 +1,6 @@
 import { ActionSchema, SolidityType } from "@stackr/sdk";
 
-export const UpdateCounterSchema = new ActionSchema("update-counter", {
-  timestamp: SolidityType.UINT,
+export const RevealSchema = new ActionSchema("reveal", {
+  x: SolidityType.UINT,
+  y: SolidityType.UINT,
 });

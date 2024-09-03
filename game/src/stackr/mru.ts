@@ -1,11 +1,11 @@
 import { MicroRollup } from "@stackr/sdk";
 import { stackrConfig } from "../../stackr.config";
 import { machine } from "./machine";
-import { UpdateCounterSchema } from "./schemas";
+import { RevealSchema } from "./schemas";
 
 const mru = await MicroRollup({
   config: stackrConfig,
-  actionSchemas: [UpdateCounterSchema],
+  actionSchemas: [RevealSchema],
   stateMachines: [machine],
 });
 

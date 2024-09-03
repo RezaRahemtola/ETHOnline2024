@@ -1,21 +1,24 @@
 import { State } from "@stackr/sdk/machine";
 import { solidityPackedKeccak256 } from "ethers";
+import { state } from "./types"
 
-export class CounterState extends State<number> {
-  constructor(state: number) {
+export class GameState extends State<state> {
+  constructor(state: state) {
     super(state);
   }
 
-  // Here since the state is simple and doesn't need wrapping, we skip the transformers to wrap and unwrap the state
-
-  // transformer() {
-  //   return {
-  //     wrap: () => this.state,
-  //     unwrap: (wrappedState: number) => wrappedState,
-  //   };
-  // }
+  transformer(): { wrap: () => state; unwrap: (wrappedState: state) => state; } {
+    return {
+      wrap: () => {
+        return this.state;
+      },
+      unwrap: (wrappedState: state) => {
+        return wrappedState;
+      },
+    };
+  }
 
   getRootHash() {
-    return solidityPackedKeccak256(["uint256"], [this.state]);
+    return solidityPackedKeccak256(["bool", "uint256[][]"], [this.state.bombeRevealed, this.state.board]);
   }
 }
