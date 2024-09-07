@@ -1,0 +1,9 @@
+{
+    "state": {
+        "gameId": 0,
+        "gameCreator": "",
+        "players": [],
+        "bombPosition": 0,
+        "guessedTiles": [],
+    }
+}
