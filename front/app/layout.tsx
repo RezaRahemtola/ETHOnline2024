@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 const fontHeading = Inter({
 	subsets: ["latin"],
@@ -23,7 +24,10 @@ export default function Layout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={cn("antialiased", fontHeading.variable, fontBody.variable)}>{children}</body>
+			<body className={cn("antialiased", fontHeading.variable, fontBody.variable)}>
+				<Toaster />
+				{children}
+			</body>
 		</html>
 	);
 }
